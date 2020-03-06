@@ -11,6 +11,7 @@
     "author": "Leosbel Poll Sotomayor",
     "license": "MIT",
     "dependencies": {
+        "apicache": "^1.5.3",
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
         "express": "^4.17.1"
