@@ -6,3 +6,51 @@
     margin: 0 auto;
     background-color: #fff;
 }
+
+.Header__section {
+    background-color: $primaryColor;
+    box-sizing: border-box;
+    overflow: auto;
+
+    .container {
+        background: none;
+    }
+
+    .form {
+        align-items: center;
+        display: flex;
+        margin: #{$headerHeightElements * 0.1} auto;
+
+        .img {
+            height: $headerHeightElements + 20px;
+            margin-right: 20px;
+        }
+
+        .input {
+            border: none;
+            border-radius: 3px 0 0 3px;
+            height: $headerHeightElements;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .button {
+            background-color: lighten($textColor, 60);
+            border: none;
+            height: $headerHeightElements;
+            width: $headerHeightElements + 10px;
+            fill: $textColor;
+            cursor: pointer;
+
+            &:hover {
+                background-color: lighten($textColor, 50);
+            }
+
+            &:active {
+                fill: #fff;
+                background-color: lighten($textColor, 55);
+            }
+        }
+    }
+}
