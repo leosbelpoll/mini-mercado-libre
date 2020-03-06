@@ -1,0 +1,23 @@
+@import "variables";
+
+// General tag styles
+
+* {
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: $backgroundColor;
+    font-family: $fontText;
+    font-size: $fontSize;
+    color: $textColor;
+}
+
+a {
+    @if not $useTextDecoration {
+        text-decoration: none;
+    }
+    color: $linkColor;
+}

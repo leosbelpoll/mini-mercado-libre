@@ -1,0 +1,21 @@
+// Colors
+$primaryColor: #fff159;
+$complementaryColor: darken(complement($primaryColor), 5);
+$backgroundColor: #eee;
+$textColor: #444444;
+$linkColor: $textColor;
+
+// Texts
+$fontText: "Roboto", sans-serif;
+
+// Links
+$useTextDecoration: false;
+
+// Measurements
+$fontSize: 16px;
+$fontSmallSize: 0.8em;
+$fontExtraSmallSize: 0.7em;
+$fontBigSize: 1.3em;
+$fontExtraBigSize: 1.8em;
+$containerWidth: 70%;
+$smallScreenSize: 800px;
