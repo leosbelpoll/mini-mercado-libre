@@ -6,6 +6,7 @@ import Error from "../parts/Error";
 import Loading from "../parts/Loading";
 import useApi from "../../hooks/useApi";
 import BreadCrumbs from "../parts/BreadCrumbs";
+import MetaTags from "../parts/MetaTags";
 import { getFormatedNumber } from "../../utils/number";
 
 const ProductDetail = () => {
@@ -31,6 +32,19 @@ const ProductDetail = () => {
 
         return (
             <>
+                <MetaTags
+                    title={`${title} - ${formattedPrice}`}
+                    metas={[
+                        {
+                            name: "description",
+                            content: `Compralo a ${formattedPrice}. Encontrá más productos de ${category} en ${process.env.REACT_APP_NAME || "Mini Mercado Libre"}`
+                        },
+                        {
+                            name: "author",
+                            content: `${name} ${lastname}`
+                        }
+                    ]}
+                />
                 <BreadCrumbs breadCrumbs={[category]} />
                 <section className="ProductDetail__section container">
                     <img src={picture} alt={title} className="icon" />

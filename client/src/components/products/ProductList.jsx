@@ -5,7 +5,9 @@ import Loading from "../parts/Loading";
 import ProductListItem from "./ProductListItem";
 import EmptyList from "../parts/EmptyList";
 import BreadCrumbs from "../parts/BreadCrumbs";
+import MetaTags from "../parts/MetaTags";
 import useApi from "../../hooks/useApi";
+import { getCapitalized } from "../../utils/text";
 
 const ProductList = props => {
     function useQuery() {
@@ -18,11 +20,25 @@ const ProductList = props => {
     if (loading) return <Loading />;
     else if (error !== null) return <Error {...error} />;
     else {
+        const capitalQ = getCapitalized(q);
         const { name, lastname } = products.author;
         return loading ? (
             <Loading />
         ) : (
             <>
+                <MetaTags
+                    title={capitalQ}
+                    metas={[
+                        {
+                            name: "description",
+                            content: `Encontrá ${capitalQ} en ${process.env.REACT_APP_NAME || "Mini Mercado"}. Descubrí la mejor forma de comprar online.`
+                        },
+                        {
+                            name: "author",
+                            content: `${name} ${lastname}`
+                        }
+                    ]}
+                />
                 <BreadCrumbs breadCrumbs={products.categories} />
                 <section className="ProductList__section container">
                     {!products.items.length ? (
