@@ -8,8 +8,8 @@
         "title": "Apple iPhone Xr Dual Sim 128 Gb Negro 3 Gb Ram",
         "price": {
             "currency": "ARS",
-            "amount": 87000,
-            "decimals": 0
+            "amount": "87000",
+            "decimals": "00"
         },
         "picture": "http://mla-s1-p.mlstatic.com/637450-MLA31002678143_062019-I.jpg",
         "condition": "new",
