@@ -1,9 +1,9 @@
 import useFetch from "./useFetch";
+import { getEnv } from "../utils/env";
 
 const useApi = (url, method = "GET", body = null, header = []) => {
     const fecthApi = useFetch(
-        `${process.env.REACT_APP_API_URL ||
-            "http://localhost:3001"}/api/${url}`,
+        `${getEnv("API_URL")}/api/${url}`,
         method,
         body,
         header
@@ -11,10 +11,8 @@ const useApi = (url, method = "GET", body = null, header = []) => {
     const { value } = fecthApi;
     if (
         value !== null &&
-        (value.author.name !==
-            (process.env.REACT_APP_AUTHOR_NAME || "Leosbel") ||
-            value.author.lastname !==
-                (process.env.REACT_APP_AUTHOR_LASTNAME || "Poll"))
+        (value.author.name !== getEnv("AUTHOR_NAME") ||
+            value.author.lastname !== getEnv("AUTHOR_LASTNAME"))
     ) {
         throw new Error("Unauthorized sign");
     }

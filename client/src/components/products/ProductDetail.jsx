@@ -8,6 +8,7 @@ import useApi from "../../hooks/useApi";
 import BreadCrumbs from "../parts/BreadCrumbs";
 import MetaTags from "../parts/MetaTags";
 import { getFormatedNumber } from "../../utils/number";
+import { getEnv } from "../../utils/env";
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -37,7 +38,7 @@ const ProductDetail = () => {
                     metas={[
                         {
                             name: "description",
-                            content: `Compralo a ${formattedPrice}. Encontrá más productos de ${category} en ${process.env.REACT_APP_NAME || "Mini Mercado Libre"}`
+                            content: `Compralo a ${formattedPrice}. Encontrá más productos de ${category} en ${getEnv("APP_NAME")}`
                         },
                         {
                             name: "author",

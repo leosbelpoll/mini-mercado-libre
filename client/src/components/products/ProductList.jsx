@@ -7,6 +7,7 @@ import EmptyList from "../parts/EmptyList";
 import BreadCrumbs from "../parts/BreadCrumbs";
 import MetaTags from "../parts/MetaTags";
 import useApi from "../../hooks/useApi";
+import { getEnv } from "../../utils/env";
 import { getCapitalized } from "../../utils/text";
 
 const ProductList = props => {
@@ -31,7 +32,7 @@ const ProductList = props => {
                     metas={[
                         {
                             name: "description",
-                            content: `Encontrá ${capitalQ} en ${process.env.REACT_APP_NAME || "Mini Mercado"}. Descubrí la mejor forma de comprar online.`
+                            content: `Encontrá ${capitalQ} en ${getEnv("APP_NAME")}. Descubrí la mejor forma de comprar online.`
                         },
                         {
                             name: "author",

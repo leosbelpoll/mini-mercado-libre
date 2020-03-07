@@ -1,11 +1,13 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
+import { getEnv } from "../../utils/env";
+
 const MetaTags = ({ title, metas }) => (
     <Helmet>
         {title && (
             <title>
-                {title} en {process.env.REACT_APP_NAME || "Mini Mercado Libre"}
+                {title} en {getEnv("APP_NAME")}
             </title>
         )}
         {metas.map((meta, index) => (

@@ -8,6 +8,7 @@ import ProductList from "./components/products/ProductList";
 import ProductDetail from "./components/products/ProductDetail";
 import Error from "./components/parts/Error";
 import MetaTags from "./components/parts/MetaTags";
+import { getEnv } from "./utils/env";
 import "./styles/App.scss";
 
 const App = () => (
@@ -17,7 +18,9 @@ const App = () => (
                 metas={[
                     {
                         name: "author",
-                        content: `${process.env.REACT_APP_AUTHOR_NAME || "Leosbel"} ${process.env.REACT_APP_AUTHOR_LASTNAME || "Poll"}`
+                        content: `${getEnv("AUTHOR_NAME")} ${getEnv(
+                            "AUTHOR_LASTNAME"
+                        )}`
                     }
                 ]}
             />
@@ -27,7 +30,15 @@ const App = () => (
                     <Route exact path="/" component={Home} />
                     <Route exact path="/items" component={ProductList} />
                     <Route exact path="/items/:id" component={ProductDetail} />
-                    <Route path="*" render={() => <Error status={404} message="Esta página no existe"/>} />
+                    <Route
+                        path="*"
+                        render={() => (
+                            <Error
+                                status={404}
+                                message="Esta página no existe"
+                            />
+                        )}
+                    />
                 </Switch>
             </Router>
         </HelmetProvider>
