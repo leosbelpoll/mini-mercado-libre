@@ -15,7 +15,7 @@ const App = () => (
             <Route exact path="/" component={Home} />
             <Route exact path="/items" component={ProductList} />
             <Route exact path="/items/:id" component={ProductDetail} />
-            <Route path="*" render={() => <Error/>} />
+            <Route path="*" render={() => <Error status={404}/>} />
         </Switch>
     </Router>
 );
