@@ -4,6 +4,7 @@ import Error from "../parts/Error";
 import Loading from "../parts/Loading";
 import ProductListItem from "./ProductListItem";
 import EmptyList from "../parts/EmptyList";
+import BreadCrumbs from "../parts/BreadCrumbs";
 import useApi from "../../hooks/useApi";
 
 const ProductList = props => {
@@ -22,6 +23,7 @@ const ProductList = props => {
             <Loading />
         ) : (
             <>
+                <BreadCrumbs breadCrumbs={products.categories} />
                 <section className="ProductList__section container">
                     {!products.items.length ? (
                         <EmptyList />

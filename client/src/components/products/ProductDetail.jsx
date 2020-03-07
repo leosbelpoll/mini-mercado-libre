@@ -5,6 +5,7 @@ import Price from "../parts/Price";
 import Error from "../parts/Error";
 import Loading from "../parts/Loading";
 import useApi from "../../hooks/useApi";
+import BreadCrumbs from "../parts/BreadCrumbs";
 import { getFormatedNumber } from "../../utils/number";
 
 const ProductDetail = () => {
@@ -30,6 +31,7 @@ const ProductDetail = () => {
 
         return (
             <>
+                <BreadCrumbs breadCrumbs={[category]} />
                 <section className="ProductDetail__section container">
                     <img src={picture} alt={title} className="icon" />
                     <aside className="details">

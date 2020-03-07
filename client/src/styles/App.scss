@@ -178,3 +178,16 @@
         vertical-align: super;
     }
 }
+
+.BreadCrumbs__section {
+    background-color: $backgroundColor;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: $fontExtraSmallSize;
+
+    .item {
+        &:not(:last-child):after {
+            content: " / ";
+        }
+    }
+}
