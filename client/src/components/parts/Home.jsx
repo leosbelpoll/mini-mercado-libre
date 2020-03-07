@@ -1,9 +1,11 @@
 import React from "react";
 
 const Home = () => (
-    <div className="container">
-        <h1>HOME</h1>
-    </div>
+    <section className="Home__section">
+        {/* 
+            In the requirements there is nothing fot this page
+        */}
+    </section>
 );
 
 export default Home;
