@@ -14,10 +14,35 @@
             rel="stylesheet"
         />
         <title>Mini Mercado Libre</title>
+        <style>
+            body {
+                background: #eee;
+                color: #444444;
+            }
+            .no-script {
+                padding: 20px;
+                text-align: center;
+                font-family: "Roboto", sans-serif;
+                font-weight: 100;
+            }
+
+            .no-script a {
+                color: #444444;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
         <noscript>
-            Necesitás habilitar JavaScript para ver esta aplicación.
+            <section class="no-script">
+                <img src="/images/error.svg" alt="Icono de error" />
+                <h1>
+                    Necesitás habilitar JavaScript para ver esta aplicación.
+                </h1>
+                <a href="https://www.enable-javascript.com/es/" target="_blank"
+                    >¿Cómo habilitar JavaScript en el navegador?</a
+                >
+            </section>
         </noscript>
         <div id="root"></div>
     </body>
