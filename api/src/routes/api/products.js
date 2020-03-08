@@ -1,8 +1,8 @@
 import express from "express";
 import apicache from "apicache";
 
-import product from "../../src/mocks/product";
-import products from "../../src/mocks/products";
+import product from "../../mocks/product";
+import products from "../../mocks/products";
 
 const router = express.Router();
 const cacheMiddleware = apicache.middleware;
