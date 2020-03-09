@@ -11,7 +11,7 @@ import { getCondition } from "../../utils/condition";
 const router = express.Router();
 const cacheMiddleware = apicache.middleware;
 
-// router.use(cacheMiddleware(`${getEnv("CACHE_MILISECONDS")} ms`));
+router.use(cacheMiddleware(`${getEnv("CACHE_MILISECONDS")} ms`));
 
 const API_URL = getEnv("API_URL");
 const author = {
