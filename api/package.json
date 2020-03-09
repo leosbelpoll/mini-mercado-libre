@@ -7,7 +7,7 @@
         "start": "npx babel-node src/index.js",
         "dev": "nodemon --exec babel-node src/index.js",
         "test": "NODE_ENV=test jest  --config ./jest.config.json",
-        "test:watch": "npm run test -- --watch"
+        "test:watch": "yarn run test -- --watch"
     },
     "repository": "https://github.com/leosbelpoll/mini-mercado-libre",
     "author": "Leosbel Poll Sotomayor",

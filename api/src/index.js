@@ -17,8 +17,9 @@ app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const PORT = getEnv("PORT");
 const APP_NAME = getEnv("APP_NAME");
 
-app.listen(PORT, () =>
-    console.log(`${APP_NAME} listening on port ${PORT}!`),
-);
-
+if (getEnv("NODE_ENV") !== "test") {
+    app.listen(PORT, () =>
+        console.log(`${APP_NAME} listening on port ${PORT}!`),
+    );
+}
 export default app;
