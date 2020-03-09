@@ -7,6 +7,7 @@ import { getResponseFormat } from "../../utils/format";
 import { getPrice, getCurrency } from "../../utils/price";
 import { getCategories, getCategory } from "../../utils/categories";
 import { getCondition } from "../../utils/condition";
+import { getProduct } from "../../utils/product";
 
 const router = express.Router();
 const cacheMiddleware = apicache.middleware;
@@ -43,40 +44,7 @@ router.get("/", async (req, res) => {
     }
 
     const items = await Promise.all(
-        products.data.results.map(async item => {
-            const {
-                id,
-                title,
-                thumbnail,
-                condition,
-                category_id,
-                sold_quantity,
-                currency_id,
-                price,
-                shipping: { free_shipping },
-            } = item;
-            const currency = await getCurrency(currency_id);
-            const category = await getCategory(category_id);
-
-            const { amount, decimals } = getPrice(
-                price,
-                currency.decimal_places,
-            );
-
-            return {
-                id,
-                title,
-                price: {
-                    currency: currency.symbol,
-                    amount,
-                    decimals,
-                },
-                picture: thumbnail,
-                category,
-                condition: getCondition(condition),
-                free_shipping,
-            };
-        }),
+        products.data.results.map(async item => getProduct(item)),
     );
     let response = {
         author,
@@ -112,41 +80,9 @@ router.get("/:id", async (req, res) => {
             return res.status(responseE.status).json(responseE);
         }
     }
-    const {
-        id,
-        title,
-        thumbnail,
-        condition,
-        sold_quantity,
-        currency_id,
-        price,
-        category_id,
-        shipping: { free_shipping },
-    } = responseItem.data;
-    const currency = await getCurrency(currency_id);
-    const category = await getCategory(category_id);
-
-    const { amount, decimals } = getPrice(
-        price,
-        currency.decimal_places,
-    );
-
-    const { plain_text: description } = responseDesciption.data;
-    const item = {
-        id,
-        title,
-        price: {
-            currency: currency.symbol,
-            amount,
-            decimals,
-        },
-        category,
-        picture: thumbnail,
-        condition: getCondition(condition),
-        free_shipping,
-        sold_quantity,
-        description,
-    };
+    const item = await getProduct(responseItem.data);
+    item.description = responseDesciption.data.plain_text;
+    item.sold_quantity = responseItem.data.sold_quantity;
     let response = {
         author,
         item,
