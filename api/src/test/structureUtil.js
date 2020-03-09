@@ -1,8 +1,7 @@
 export const responseFormat = {
     message: expect.any(String),
     error: expect.any(String),
-    status: expect.any(Number),
-    cause: expect.any(Array),
+    status: expect.any(Number)
 };
 
 export const baseItemFormat = {
