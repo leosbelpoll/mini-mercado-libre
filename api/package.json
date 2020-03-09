@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start": "npx babel-node src/index.js",
-        "dev": "nodemon --exec babel-node src/index.js"
+        "dev": "nodemon --exec babel-node src/index.js",
+        "test": "NODE_ENV=test jest  --config ./jest.config.json",
+        "test:watch": "npm run test -- --watch"
     },
     "repository": "https://github.com/leosbelpoll/mini-mercado-libre",
     "author": "Leosbel Poll Sotomayor",
@@ -22,6 +24,8 @@
         "@babel/core": "^7.8.7",
         "@babel/node": "^7.8.7",
         "@babel/preset-env": "^7.8.7",
-        "nodemon": "^2.0.2"
+        "jest": "^25.1.0",
+        "nodemon": "^2.0.2",
+        "supertest": "^4.0.2"
     }
 }
