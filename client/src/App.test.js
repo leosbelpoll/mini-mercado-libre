@@ -1,9 +1,19 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { shallow, mount } from "enzyme";
 import App from "./App";
+import { HelmetProvider } from "react-helmet-async";
+import Header from "./components/parts/Header";
+import MetaTags from "./components/parts/MetaTags";
 
-test("renders learn react link", () => {
-    const { getByText } = render(<App />);
-    const linkElement = getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
+it("renders without crashing", () => {
+    shallow(<App />);
+});
+
+describe("App", () => {
+    const wrapper = mount(<App />);
+    it("Case: Verify component elements", () => {
+        expect(wrapper.find(HelmetProvider).length).toEqual(1);
+        expect(wrapper.find(MetaTags).length).toEqual(1);
+        expect(wrapper.find(Header).length).toEqual(1);
+    });
 });
