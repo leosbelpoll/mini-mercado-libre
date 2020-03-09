@@ -1,14 +1,14 @@
 import { getCondition } from "../utils/condition";
 
 describe("Test condition.js util", () => {
-    it("New case", () => {
+    it("Case: New", () => {
         expect(getCondition("new")).toEqual("Nuevo");
     });
 
-    it("Used case", () => {
+    it("Case: Used", () => {
         expect(getCondition("used")).toEqual("Usado");
     });
-    it("Not specified case", () => {
+    it("Case: Not specified", () => {
         expect(getCondition("not_specified")).toEqual(
             "No especificado",
         );
