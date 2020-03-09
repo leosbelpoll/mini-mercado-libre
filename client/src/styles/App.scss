@@ -6,6 +6,11 @@
     width: $containerWidth;
     margin: 0 auto;
     background-color: #fff;
+
+    @media screen and (max-width: $smallScreenSize) {
+        width: 100%;
+        padding: 10px;
+    }
 }
 
 .Header__section {
@@ -106,6 +111,21 @@
             font-size: $fontSmallSize;
             white-space: pre-wrap;
         }
+
+        @media screen and (max-width: $smallScreenSize) {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (max-width: $smallScreenSize) {
+        display: flex;
+        flex-direction: column;
+
+        .icon {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
     }
 }
 
@@ -189,6 +209,10 @@
         &:not(:last-child):after {
             content: " / ";
         }
+    }
+
+    @media screen and (max-width: $smallScreenSize) {
+        padding: 10px;
     }
 }
 
