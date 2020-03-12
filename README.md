@@ -10,7 +10,14 @@ Debe tener los puertos 3000 y 3001 libres ya que son los asignados por defecto. 
 
 Puede acceder a [Swagger UI](http://localhost:3001) para mayor detalle de la Api
 
+### Ejecutar los tests
+```bash
+# Client tests
+cd client && yarn run test
 
+# Mini Api tests
+cd api && yarn run test
+```
 
 ### Configurar local
 Tanto `api` como `client` pueden ser configuradas con variables de entorno en desarrollo. Solo tiene que crear un fichero `.env` con el siguiente formato:
