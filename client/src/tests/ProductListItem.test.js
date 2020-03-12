@@ -43,7 +43,7 @@ describe("ProductListItem", () => {
         expect(wrapper).toMatchSnapshot();
         expect(wrapper).toBeTruthy();
         expect(wrapper.find(Price).length).toEqual(1);
-        expect(wrapper.exists("span.new")).toBeTruthy();
+        expect(wrapper.exists("img.freeshipping")).toBeTruthy();
         expect(wrapper.find("span.title").text()).toEqual(productItem.title);
         expect(wrapper.find("span.category").text()).toEqual(
             productItem.category
@@ -59,7 +59,7 @@ describe("ProductListItem", () => {
     it("Case: Not free shipping", () => {
         const wrapper = shallow(<ProductListItem product={productItemOld} />);
         expect(wrapper.find(Price).length).toEqual(1);
-        expect(wrapper.exists("span.new")).toBeFalsy();
+        expect(wrapper.exists("img.freeshipping")).toBeFalsy();
         expect(wrapper.find("span.title").text()).toEqual(productItem.title);
         expect(wrapper.find("span.category").text()).toEqual(
             productItem.category

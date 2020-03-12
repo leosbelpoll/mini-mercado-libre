@@ -161,10 +161,11 @@
             display: block;
         }
 
-        .new {
-            font-size: $fontBigSize;
-            color: rgb(34, 179, 8);
-            margin-left: 2px;
+        .freeshipping {
+            margin-left: 10px;
+            margin-bottom: 3px;
+            vertical-align: middle;
+            width: $fontSmallSize;
         }
 
         .category {
@@ -190,7 +191,6 @@
         }
     }
 }
-
 
 .Price__section {
     .decimals {

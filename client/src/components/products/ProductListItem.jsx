@@ -11,7 +11,13 @@ const ProductListItem = ({
             <img src={picture} alt={title} className="icon" />
             <div className="info">
                 <Price price={price} />
-                {free_shipping && <span className="new">●</span>}
+                {free_shipping && (
+                    <img
+                        className="freeshipping"
+                        src="/images/freeshipping.png"
+                        alt="Free shipping icon"
+                    />
+                )}
                 <span className="title">{title}</span>
             </div>
             <span className="category">{category}</span>
