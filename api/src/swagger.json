@@ -94,7 +94,9 @@
                 },
                 "items": {
                     "type": "array",
-                    "$ref": "#/definitions/Item"
+                    "items": {
+                        "$ref": "#/definitions/Item"
+                    }
                 }
             }
         },
@@ -135,6 +137,9 @@
                     "type": "number"
                 },
                 "description": {
+                    "type": "string"
+                },
+                "city_name": {
                     "type": "string"
                 }
             }
