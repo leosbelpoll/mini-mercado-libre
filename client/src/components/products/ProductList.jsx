@@ -23,16 +23,16 @@ const ProductList = props => {
     else {
         const capitalQ = getCapitalized(q);
         const { name, lastname } = products.author;
-        return loading ? (
-            <Loading />
-        ) : (
+        return (
             <>
                 <MetaTags
                     title={capitalQ}
                     metas={[
                         {
                             name: "description",
-                            content: `Encontrá ${capitalQ} en ${getEnv("APP_NAME")}. Descubrí la mejor forma de comprar online.`
+                            content: `Encontrá ${capitalQ} en ${getEnv(
+                                "APP_NAME"
+                            )}. Descubrí la mejor forma de comprar online.`
                         },
                         {
                             name: "author",
