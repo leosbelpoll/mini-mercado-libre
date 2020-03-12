@@ -14,6 +14,7 @@ const productItem = {
     picture: "http://mla-s1-p.mlstatic.com/637450-MLA31002678143_062019-I.jpg",
     category: "Celulares y Smartphones",
     condition: "Nuevo",
+    city_name: "San Isidro",
     free_shipping: true,
     description:
         "Nueva pantalla y diseño compacto.\nEl nuevo iPhone XR le da la bienvenida",
@@ -31,6 +32,7 @@ const productItemOld = {
     picture: "http://mla-s1-p.mlstatic.com/637450-MLA31002678143_062019-I.jpg",
     category: "Celulares y Smartphones",
     condition: "Nuevo",
+    city_name: "San Isidro",
     free_shipping: false,
     description:
         "Nueva pantalla y diseño compacto.\nEl nuevo iPhone XR le da la bienvenida",
@@ -45,9 +47,7 @@ describe("ProductListItem", () => {
         expect(wrapper.find(Price).length).toEqual(1);
         expect(wrapper.exists("img.freeshipping")).toBeTruthy();
         expect(wrapper.find("span.title").text()).toEqual(productItem.title);
-        expect(wrapper.find("span.category").text()).toEqual(
-            productItem.category
-        );
+        expect(wrapper.find("span.city").text()).toEqual(productItem.city_name);
         expect(wrapper.find("Link").props().to).toEqual(
             `/items/${productItem.id}`
         );
@@ -61,9 +61,7 @@ describe("ProductListItem", () => {
         expect(wrapper.find(Price).length).toEqual(1);
         expect(wrapper.exists("img.freeshipping")).toBeFalsy();
         expect(wrapper.find("span.title").text()).toEqual(productItem.title);
-        expect(wrapper.find("span.category").text()).toEqual(
-            productItem.category
-        );
+        expect(wrapper.find("span.city").text()).toEqual(productItem.city_name);
         expect(wrapper.find("Link").props().to).toEqual(
             `/items/${productItem.id}`
         );

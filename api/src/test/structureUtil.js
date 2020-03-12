@@ -13,9 +13,7 @@ export const baseItemFormat = {
         decimals: expect.any(String),
     }),
     category: expect.any(String),
-    picture: expect.any(String),
-    condition: expect.any(String),
-    free_shipping: expect.any(Boolean),
+    picture: expect.any(String)
 };
 
 export const authorFormat = {

@@ -4,8 +4,7 @@ import apicache from "apicache";
 
 import { getEnv } from "../../utils/env";
 import { getResponseFormat } from "../../utils/format";
-import { getPrice, getCurrency } from "../../utils/price";
-import { getCategories, getCategory } from "../../utils/categories";
+import { getCategories } from "../../utils/categories";
 import { getCondition } from "../../utils/condition";
 import { getProduct } from "../../utils/product";
 
@@ -44,7 +43,18 @@ router.get("/", async (req, res) => {
     }
 
     const items = await Promise.all(
-        products.data.results.map(async item => getProduct(item)),
+        products.data.results.map(async item => {
+            const {
+                shipping: { free_shipping },
+                address: { city_name },
+                condition
+            } = item;
+            const product = await getProduct(item);
+            product.free_shipping = free_shipping;
+            product.city_name = city_name;
+            product.condition = getCondition(condition);
+            return product;
+        }),
     );
     let response = {
         author,
@@ -83,6 +93,7 @@ router.get("/:id", async (req, res) => {
     const item = await getProduct(responseItem.data);
     item.description = responseDesciption.data.plain_text;
     item.sold_quantity = responseItem.data.sold_quantity;
+    item.condition = getCondition(responseItem.data.condition);
     let response = {
         author,
         item,

@@ -1,17 +1,14 @@
 import { getCategory } from "./categories";
 import { getPrice, getCurrency } from "./price";
-import { getCondition } from "./condition";
 
 export async function getProduct(item) {
     const {
         id,
         title,
         thumbnail,
-        condition,
         category_id,
         currency_id,
-        price,
-        shipping: { free_shipping },
+        price
     } = item;
     const currency = await getCurrency(currency_id);
     const category = await getCategory(category_id);
@@ -30,8 +27,6 @@ export async function getProduct(item) {
             decimals,
         },
         picture: thumbnail,
-        category,
-        condition: getCondition(condition),
-        free_shipping,
+        category
     };
 }

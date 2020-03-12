@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Price from "../parts/Price";
 
 const ProductListItem = ({
-    product: { category, title, price, picture, id, free_shipping }
+    product: { city_name, title, price, picture, id, free_shipping }
 }) => (
     <>
         <Link to={`/items/${id}`} className="product">
@@ -20,7 +20,7 @@ const ProductListItem = ({
                 )}
                 <span className="title">{title}</span>
             </div>
-            <span className="category">{category}</span>
+            <span className="city">{city_name}</span>
         </Link>
     </>
 );
